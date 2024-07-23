@@ -1,0 +1,49 @@
+name: Practice
+author: Jass
+main: me.jass.practice.Practice
+version: 1.0
+api-version: 1.19
+softdepend: [PlaceholderAPI]
+description: Duels plugin
+
+permissions:
+  practice.help:
+    default: true
+  practice.stats:
+    default: true
+  practice.settings:
+    default: true
+  practice.leaderboards:
+    default: true
+  practice.layout:
+    default: true
+  practice.duel:
+    default: true
+  practice.duel.request:
+    default: true
+  practice.duel.challenge:
+    default: true
+  practice.duel.queue:
+    default: true
+  practice.duel.leave:
+    default: true
+  practice.duel.spectate:
+    default: true
+  practice.duel.view:
+    default: true
+  practice.arena:
+    default: op
+  practice.fly:
+    default: op
+  practice.reload:
+    default: op
+  practice.whitelist:
+    default: op
+  practice.whitelist.join:
+    default: op
+  practice.edit.kit:
+    default: op
+  practice.edit.arena:
+    default: op
+  practice.edit.extra:
+    default: op

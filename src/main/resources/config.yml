@@ -1,0 +1,168 @@
+# How many blocks will be fixed each tick while repairing
+Repairs Per Tick: 100
+
+# If the map should be repaired each round
+Repairs Per Round: true
+
+# How many minutes there are between file saves
+Save Interval: 5
+
+# How many minutes there are between leaderboard updates 
+Leaderboard Update Interval: 5
+
+# How many seconds the countdown lasts before starting the next round
+Duel Countdown Length: 5
+
+# How many seconds before a request expires
+Request Time Limit: 60
+
+# How many seconds the rematch phase lasts
+Rematch Phase: 5
+
+# Whether players warp to spawn on join
+Join To Spawn: true
+
+# If a player can use explosives outside of a duel or not
+# Practice will not repair blocks damaged by players outside of a duel
+Unsafe Explosives: false
+
+# If a player can alter the environment outside of a duel
+# Practice will not repair blocks damaged by players outside of a duel
+Unsafe Interactions: false
+
+# Whether to use hex colors (#red, #blue, etc) or convert them to default colors (&a, &b, etc)
+# Hex is only available for 1.16+
+Hex Colors: true
+
+# Whether the duel chat channel feature is enabled
+Duel Chat: true
+
+# Whether players can kill players on their own team
+Friendly Fire: true
+
+# Permissions allowed by default
+# practice.help
+# practice.stats
+# practice.settings
+# practice.layout
+# practice.duel
+# practice.duel.request
+# practice.duel.challenge
+# practice.duel.queue
+# practice.duel.leave
+# practice.duel.spectate
+# practice.duel.view
+
+# Permissions denied by default
+# practice.extras.<extraname>
+# practice.arena
+# practice.fly
+# practice.reload
+# practice.whitelist
+# practice.whitelist.join
+# practice.edit.kit
+# practice.edit.arena
+# practice.edit.extra
+
+# Messages
+Prefix: "&8[&7Practice&8] &r"
+
+# Team colors can't be hex
+Team A Color: "&c"
+Team B Color: "&9"
+Sub Color: "&7"
+
+Whitelist: "#redYou're not whitelisted!"
+
+Player Restricted: "#redThis command can only be used by players!"
+Invalid Player: "#redInvalid player!"
+Invalid Arena: "#redInvalid arena!"
+Invalid Extra: "#redInvalid extra!"
+Invalid Kit: "#redInvalid kit!"
+Invalid Queue: "#redInvalid queue!"
+Invalid Request: "#redInvalid Request!"
+Currently Dueling: "#redYou're currently dueling!"
+Not Dueling: "#redYou're not in a duel!"
+Player Not Dueling: "#redPlayer isn't dueling!"
+Leave Duel: "&7You left the duel"
+Player Left: "#redA Player has left this duel!"
+Already Left: "#redYou already left!"
+Duel Self: "#redYou can't duel yourself goober!"
+Duel Failure: "#redYou can't duel this player at this time!"
+Requests Disabled: "#redThis player has duel requests disabled!"
+Leave Queue: "&7You left the queue!"
+Already Requested: "#redYou already requested a rematch!"
+
+Duel Start: "%teamA% &7vs %teamB%-ping"
+Competitive Duel Start: |
+  %teamA% &7vs %teamB%-ping-elo
+  &7Potential: #lime%eloIncrement%&7/#red%eloDecrement%
+Duel End: |
+  %winners% &7defeated %losers%
+  &7Score: %teamAColor%%teamAWins%&7/%teamBColor%%teamBWins%
+Competitive Duel End: |
+  %winners% &7defeated %losers%
+  &7Elo: &e%elo% &8(&e%eloDifference%&8)
+
+Round End: "%roundWinners% &7defeated %roundLosers% %teamAColor%%teamAWins%&7/%teamBColor%%teamBWins%-score"
+Score Round End: "&7Score: %teamAColor%%teamAScore%&7/%teamBColor%%teamBScore%"
+
+Countdown Main: "&7Round %round% in %countdown%"
+Countdown Sub: "%teamColor%You: &7%teamScore% %opponentTeamColor%Them: &7%opponentTeamScore%"
+End Countdown Main: "&7Match Start!"
+End Countdown Sub: "&8Let the games begin!"
+
+Duel Bar: "%teamColor%You: &7%teamScore% %opponentTeamColor%Them: &7%opponentTeamScore%"
+
+Spectator Join: "&r%player% &7is now spectating!"
+Spectator Leave: "&r%player% &7is no longer spectating!"
+
+View Winner: "&a[%player%]"
+View Loser: "&c[%player%]"
+
+Request Rematch: "&r%player% &7requests a rematch! (%requests%/%duelists%)"
+Request Send: "&7You've sent a duel request to &r%receiver%"
+Request Receive: |
+  &7Duel Request
+  &7By: &r%requester%
+  &7Kit: &r%kit%
+  &7Map: &r%arena%
+  &7%roundType%: &r%rounds%
+Accept Request: "&7(&aAccept Request&7)"
+Requester Dueling: "&r%requester% &7is currently dueling!"
+
+Queue Join: |
+  &7You joined the &r%kit% &7queue
+  &7Mode: &r%mode%
+  &7Type: &r%type%
+Queue Leave: "&7You left the queue"
+
+# Default Colors
+# Lime    | &a
+# Aqua    | &b
+# Salmon  | &c
+# Magenta | &d
+# Yellow  | &e
+# White   | &f
+# Black   | &0
+# Navy    | &1
+# Green   | &2
+# Cyan    | &3
+# Red     | &4
+# Purple  | &5
+# Gold    | &6
+# Silver  | &7
+# Gray    | &8
+# Blue    | &9
+
+# Hex Colors
+# Red     | &#FF0000
+# Orange  | &#FFA500
+# Yellow  | &#FFD700
+# Green   | &#008000
+# Blue    | &#0000FF
+# Purple  | &#4B0082
+# Pink    | &#FF69B4
+# Aqua    | &#00FFFF
+# Lime    | &#00FF00
+# Brown   | &#964B00

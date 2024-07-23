@@ -1,0 +1,104 @@
+package me.jass.practice.managers;
+
+import org.bukkit.configuration.file.FileConfiguration;
+
+import lombok.Getter;
+import me.jass.practice.PracticeAPI;
+
+@Getter
+public class MessageManager {
+	FileConfiguration messages = PracticeAPI.INSTANCE.getPlugin().getConfig();
+	private String prefix;
+	private String whitelist;
+	private String playerRestricted;
+	private String currentlyDueling;
+	private String invalidPlayer;
+	private String invalidArena;
+	private String invalidExtra;
+	private String invalidKit;
+	private String notDueling;
+	private String leaveDuel;
+	private String alreadyLeft;
+	private String invalidQueue;
+	private String leaveQueue;
+	private String playerNotDueling;
+	private String alreadyRequested;
+	private String playerLeft;
+	private String duelSelf;
+	private String duelFailure;
+	private String requestsDisabled;
+	private String acceptRequest;
+	private String invalidRequest;
+	private String teamAColor;
+	private String teamBColor;
+	private String subColor;
+	private String duelStart;
+	private String competitiveDuelStart;
+	private String roundEnd;
+	private String scoreRoundEnd;
+	private String duelEnd;
+	private String competitiveDuelEnd;
+	private String countdownMain;
+	private String countdownSub;
+	private String endCountdownMain;
+	private String endCountdownSub;
+	private String duelBar;
+	private String spectatorJoin;
+	private String spectatorLeave;
+	private String viewWinner;
+	private String viewLoser;
+	private String requestRematch;
+	private String requestSend;
+	private String requestReceive;
+	private String requesterDueling;
+	private String queueJoin;
+	private String queueLeave;
+
+	public void load() {
+		prefix = messages.getString("Prefix");
+		whitelist = messages.getString("Whitelist");
+		playerRestricted = messages.getString("Prefix");
+		currentlyDueling = messages.getString("Currently Dueling");
+		invalidPlayer = messages.getString("Invalid Player");
+		invalidArena = messages.getString("Invalid Arena");
+		invalidExtra = messages.getString("Invalid Extra");
+		invalidKit = messages.getString("Invalid Kit");
+		notDueling = messages.getString("Not Dueling");
+		leaveDuel = messages.getString("Leave Duel");
+		alreadyLeft = messages.getString("Already Left");
+		invalidQueue = messages.getString("Invalid Queue");
+		leaveQueue = messages.getString("Leave Queue");
+		playerNotDueling = messages.getString("Player Not Dueling");
+		alreadyRequested = messages.getString("Already Requested");
+		playerLeft = messages.getString("Player Left");
+		duelSelf = messages.getString("Duel Self");
+		duelFailure = messages.getString("Duel Failure");
+		requestsDisabled = messages.getString("Requests Disabled");
+		acceptRequest = messages.getString("Accept Request");
+		invalidRequest = messages.getString("Invalid Request");
+		teamAColor = messages.getString("Team A Color");
+		teamBColor = messages.getString("Team B Color");
+		subColor = messages.getString("Sub Color");
+		duelStart = messages.getString("Duel Start");
+		competitiveDuelStart = messages.getString("Competitive Duel Start");
+		roundEnd = messages.getString("Round End");
+		scoreRoundEnd = messages.getString("Score Round End");
+		duelEnd = messages.getString("Duel End");
+		competitiveDuelEnd = messages.getString("Competitive Duel End");
+		countdownMain = messages.getString("Countdown Main");
+		countdownSub = messages.getString("Countdown Sub");
+		endCountdownMain = messages.getString("End Countdown Main");
+		endCountdownSub = messages.getString("End Countdown Sub");
+		duelBar = messages.getString("Duel Bar");
+		spectatorJoin = messages.getString("Spectator Join");
+		spectatorLeave = messages.getString("Spectator Leave");
+		viewWinner = messages.getString("View Winner");
+		viewLoser = messages.getString("View Loser");
+		requestRematch = messages.getString("Request Rematch");
+		requestSend = messages.getString("Request Send");
+		requestReceive = messages.getString("Request Receive");
+		requesterDueling = messages.getString("Requester Dueling");
+		queueJoin = messages.getString("Queue Join");
+		queueLeave = messages.getString("Queue Leave");
+	}
+}
