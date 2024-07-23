@@ -14,6 +14,10 @@ public class BreakListener implements Listener {
 	@EventHandler
 	public void onBlockBreak(final BlockBreakEvent event) {
 		final Player player = event.getPlayer();
+		if (!PracticeAPI.INSTANCE.getDuelManager().isDueling(player)) {
+			return;
+		}
+
 		final Duel duel = PracticeAPI.INSTANCE.getDuelManager().getIndex(player);
 		final Duelist duelist = duel.getDuelist(player);
 

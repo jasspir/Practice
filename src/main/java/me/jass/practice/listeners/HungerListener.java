@@ -25,7 +25,18 @@ public class HungerListener implements Listener {
 			return;
 		}
 
+
+		if (!PracticeAPI.INSTANCE.getDuelManager().isDueling(player)) {
+			return;
+		}
+
 		final Duel duel = PracticeAPI.INSTANCE.getDuelManager().getIndex(player);
+
+		if (!duel.isActive() || duel.isFrozen()) {
+			event.setCancelled(true);
+			return;
+		}
+
 		final Duelist duelist = duel.getDuelist(player);
 
 		if (!duelist.getKit().isHungerDepletion()) {

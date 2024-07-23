@@ -19,6 +19,7 @@ public class DeathListener implements Listener {
 		}
 
 		final Duel duel = PracticeAPI.INSTANCE.getDuelManager().getIndex(player);
+
 		final Duelist duelist = duel.getDuelist(player);
 
 		if (!duelist.getKit().isDeathDrops()) {

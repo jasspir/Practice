@@ -29,10 +29,14 @@ public class AttackListener implements Listener {
 			return;
 		}
 
+		if (!PracticeAPI.INSTANCE.getDuelManager().isDueling(player)) {
+			return;
+		}
+
 		final Duel duel = PracticeAPI.INSTANCE.getDuelManager().getIndex(damager);
 		final Duelist duelist = duel.getDuelist(damager);
 
-		if (duelist.isFrozen()) {
+		if (!duel.isActive() || duelist.isFrozen()) {
 			event.setCancelled(true);
 			return;
 		}
