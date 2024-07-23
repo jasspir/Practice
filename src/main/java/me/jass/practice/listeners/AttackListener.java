@@ -29,7 +29,7 @@ public class AttackListener implements Listener {
 			return;
 		}
 
-		if (!PracticeAPI.INSTANCE.getDuelManager().isDueling(player)) {
+		if (!PracticeAPI.INSTANCE.getDuelManager().isDueling(damager)) {
 			return;
 		}
 
