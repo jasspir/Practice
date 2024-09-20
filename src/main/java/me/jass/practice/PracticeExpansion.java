@@ -46,56 +46,86 @@ public class PracticeExpansion extends PlaceholderExpansion {
 	}
 
 	@Override
-	public String onPlaceholderRequest(final Player player, final String identifier) {
-		if (player == null || identifier == null) {
-			return null;
-		}
+    	public String onPlaceholderRequest(final Player player, final String identifier) {
+        	if (player == null || identifier == null) {
+            		return null;
+        	}
 
-		if (!identifier.startsWith("lb_")) {
-			return null;
-		}
+        	if (identifier.startsWith("lb_")) {
+            	final String[] split = identifier.split("_");
 
-		final String[] split = identifier.split("_");
+	        if (!split[1].equalsIgnoreCase("solo") && !split[1].equalsIgnoreCase("duo")) {
+        		return null;
+            	}
 
-		final Kit kit = PracticeAPI.INSTANCE.getKitManager().get(split[2]);
+            	final Kit kit = PracticeAPI.INSTANCE.getKitManager().get(split[2]);
 
-		if (kit == null) {
-			return null;
-		}
+            	if (kit == null) {
+                	return null;
+            	}
 
-		if (!split[1].equalsIgnoreCase("solo") && !split[1].equalsIgnoreCase("duo")) {
-			return null;
-		}
+            	final Integer position = Ints.tryParse(split[3]);
 
-		final Integer position = Ints.tryParse(split[3]);
+            	if (position == null) {
+                	return null;
+            	}
 
-		if (position == null) {
-			return null;
-		}
+            	if (position < 1 || position > 10) {
+                	return null;
+            	}
 
-		if (position < 1 || position > 10) {
-			return null;
-		}
+            	final List<Elo> elo = PracticeAPI.INSTANCE.getEloManager().getLeaderboard(kit, Queues.valueOf(split[1].toUpperCase()));
 
-		final List<Elo> elo = PracticeAPI.INSTANCE.getEloManager().getLeaderboard(kit, Queues.valueOf(split[1].toUpperCase()));
+            	if (elo.size() < position) {
+                	return "&7#" + position + " &rNo Player";
+            	}
 
-		if (elo.size() < position) {
-			return "&7#" + position + " &rNo Player";
-		}
+            	String color = "&7";
+            	if (position == 1) {
+                	color = "&#FFD700";
+            	}
 
-		String color = "&7";
-		if (position == 1) {
-			color = "&#FFD700";
-		}
+            	else if (position == 2) {
+                	color = "&#C0C0C0";
+            	}
 
-		else if (position == 2) {
-			color = "&#C0C0C0";
-		}
+            	else if (position == 3) {
+                	color = "&#CD7F32";
+            	}
 
-		else if (position == 3) {
-			color = "&#CD7F32";
-		}
+            	return color + "#" + position + " " + Bukkit.getOfflinePlayer(elo.get(position - 1).getId()).getName() + " &7(&r" + elo.get(position - 1).getElo() + "&7)";
+        } else if (identifier.startsWith("stats_")) {
+            	final String[] split = identifier.split("_");
 
-		return color + "#" + position + " " + Bukkit.getOfflinePlayer(elo.get(position - 1).getId()).getName() + " &7(&r" + elo.get(position - 1).getElo() + "&7)";
-	}
+            	if (!split[1].equalsIgnoreCase("kills") && !split[1].equalsIgnoreCase("deaths") && !split[1].equalsIgnoreCase("matches")) {
+                	return null;
+            	}
+            
+            	if (split.length == 3) {
+                	Player user = Bukkit.getPlayer(split[2]);
+
+                	if (user == null) {
+                    	return null;
+                	}
+
+                	return "" + PracticeAPI.INSTANCE.getStatManager().getOverall(user);
+            	} else {
+                	final Kit kit = PracticeAPI.INSTANCE.getKitManager().get(split[2]);
+
+                	if (kit == null) {
+                    	return null;
+                	}
+
+                	Player user = Bukkit.getPlayer(split[3]);
+
+                	if (user == null) {
+                    	return null;
+                	}
+
+                	return "" + PracticeAPI.INSTANCE.getStatManager().get(user, kit, null);
+            	}
+        } else {
+            return null;
+        }
+    }
 }
