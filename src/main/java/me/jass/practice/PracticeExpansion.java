@@ -105,7 +105,7 @@ public class PracticeExpansion extends PlaceholderExpansion {
                 	Player user = Bukkit.getPlayer(split[2]);
 
                 	if (user == null) {
-                    	return null;
+                    		return null;
                 	}
 
                 	return "" + PracticeAPI.INSTANCE.getStatManager().getOverall(user);
@@ -113,13 +113,13 @@ public class PracticeExpansion extends PlaceholderExpansion {
                 	final Kit kit = PracticeAPI.INSTANCE.getKitManager().get(split[2]);
 
                 	if (kit == null) {
-                    	return null;
+                    		return null;
                 	}
 
                 	Player user = Bukkit.getPlayer(split[3]);
 
                 	if (user == null) {
-                    	return null;
+                    		return null;
                 	}
 
                 	return "" + PracticeAPI.INSTANCE.getStatManager().get(user, kit, null);
